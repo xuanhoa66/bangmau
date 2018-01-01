@@ -40,12 +40,20 @@ $(document).ready(function() {
         var form = $('page').get(0);
 
         html2canvas(form).then( function(canvas){
-            var img = canvas.toDataURL();
-            $("#export_img").attr('src',img);
-            $("#export_download").attr('href',img);
-            $("#export_dropbox").attr('href','/index.html');
+             var a = document.createElement('a');
+        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+        a.download = 'somefilename.jpg';
+        a.click();
+
+        
+            // var img = canvas.toDataURL().replace("image/jpeg", "image/octet-stream");;
+            // var win = window.open(img);
+            // $("#export_img").attr('src',img);
+            // $("#export_download").attr('href',img);
+            // $("#export_dropbox").attr('href','/index.html');
         }); 
-        $("#export").modal('open');
+        // $("#export").modal('open');
     } 
 
     // đổi tên file
