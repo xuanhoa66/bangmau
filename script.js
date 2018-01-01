@@ -270,7 +270,6 @@ $(document).ready(function() {
         $(this).parent('td').parent('tr').remove();
 
         var type = $("#type").val();
-
         if (type == 1) {
             $.sumQuyetToan();
         }else if( type == 2){
