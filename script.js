@@ -76,7 +76,7 @@ $(document).ready(function() {
             '<td><input type="" class="c-input dvt"></td>'+
             '<td><input type="" class="c-input kl" placeholder="0"></td>'+
             '<td><input type="" class="c-input text-right donGia" placeholder="0"></td>'+
-            '<td><input type=""  class="thanhTien c-input text-right" name="" value="0" disabled="disabled"></td>'+
+            '<td class="text-right"><span class="thanhTien"></span></td>'+
             '</tr>';
         $("#appendRow").append(template);
     });
@@ -144,10 +144,10 @@ $(document).ready(function() {
              var donGia = $(this).find('.donGia').val();
              if ( !isNaN(kl) && kl.length !== 0 && donGia.length !== 0  ) {
                 var thanhTien = parseInt(kl) * parseInt(donGia.replace(/[^0-9\.]/g,''));
-                $(this).find('.thanhTien').val(addCommas(thanhTien));
+                $(this).find('.thanhTien').html(addCommas(thanhTien));
                 sum += parseInt(thanhTien);
              }else{
-                $(this).find('.thanhTien').val('');
+                $(this).find('.thanhTien').html('');
              }
          });
 
