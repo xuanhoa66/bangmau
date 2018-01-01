@@ -44,6 +44,9 @@ $(document).ready(function() {
         // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
             a.href = canvas.toDataURL("image/jpeg");
             a.download = 'somefilename.jpg';
+
+            $('.no-print').css('display','block');
+            
             a.click();
 
 
@@ -54,8 +57,6 @@ $(document).ready(function() {
             // $("#export_dropbox").attr('href','/index.html');
         }); 
         // $("#export").modal('open');
-
-        // $('.no-print').css('display','block');
     } 
 
     // đổi tên file
