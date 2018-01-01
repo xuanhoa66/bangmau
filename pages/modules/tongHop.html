@@ -1,0 +1,143 @@
+	<h1 class="center"><input type="" class="c-input" style="width: 100%;margin-bottom: 20px; text-align: center; text-transform: uppercase; line-height: 40px;" value="Bảng tổng hợp"></h1>
+
+<div class="row thongTin">
+	<div class="col s7">
+		<ul>
+			<li>
+				<span class="nm">Công trình:</span>
+				<span class="cl"><input type="" name="" class="c-input"></span>
+			</li>
+			<li>
+				<span class="nm">Hạng mục:</span>
+				<span class="cl"><input type="" name="" class="c-input"></span>
+			</li>
+			<li>
+				<span class="nm">TP.HCM:</span>
+				<span class="cl"><input type="" name="" class="c-input"></span>
+			</li>
+		</ul>
+	</div>
+	<div class="col s5" style="padding-right: 0">
+		<ul>
+			<li>
+				<span class="nm">Chủ cơ sở:</span> Nguyễn Xuân Hòa
+			</li>
+			<li>
+				<span class="nm">Điện thoại:</span> 09003 694 909
+			</li>
+			<li>
+				<span class="nm">Email:</span>	xuanhoa66@gmail.com
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+<table class="striped bordered bg">
+	<thead>
+		<tr>
+			<th width="5%">STT</th>
+			<th width="60%">Hạng mục</th>
+			<th width="15%">Thành tiền</th>
+			<th width="20%">Ghi chú</th>
+		</tr>
+	</thead>
+	<tbody id="appendRow">
+		<tr>
+			<td>
+				<input type="" class="c-input" name="">
+			</td>
+			<td>
+				<textarea></textarea>
+			</td>
+			<td>
+				<input type="" value="" class="c-input text-right thanhTien">
+			</td>
+		
+			<td>
+				<textarea></textarea>
+			</td>
+		</tr>
+
+	</tbody>
+
+	<tfoot>
+		<tr>
+			<td colspan="2" class="text-right">
+				<strong>Tổng tiền</strong>
+			</td>
+			<td class="text-right" id="total">
+				0
+			</td>
+			<td></td>
+		</tr>
+		
+
+		<tr style="display: none" id="showCongTyCon">
+			<td colspan="2" class="text-right">
+				<strong>Công ty còn</strong>
+			</td>
+			<td class="text-right">
+				<input type="" class="text-right" id="congTyCon" name="">
+			</td>
+			<td></td>
+		</tr>
+
+
+		<tr style="display: none" id="showTamUng">
+			<td colspan="2" class="text-right">
+				<strong>Tạm ứng</strong>
+			</td>
+			<td>
+				<input type="" class="text-right" id="tamUng" name="">
+			</td>
+			<td></td>
+		</tr>
+
+		<tr style="display: none" id="showConLai">
+			<td colspan="2" class="text-right">
+				<strong>Còn lại</strong>
+			</td>
+			<td class="text-right conLai">
+				0
+			</td>
+			<td></td>
+		</tr>
+
+		<tr style="display: none" id="showTongCong">
+			<td colspan="2" class="text-right">
+				<strong>Tổng cộng</strong>
+			</td>
+			<td class="text-right tongCong">
+				0
+			</td>
+			<td></td>
+		</tr>
+
+
+		<tr>
+			<td colspan="4" class="text-right" id="docChuSo">
+				Không
+			</td>
+		</tr>
+
+		<tr class="no-print">
+			<td colspan="4" class="center">
+				<a class="waves-effect waves-light btn" id="addRowTongHop"><i class="material-icons left">add</i> Thêm hàng</a>
+
+				<input  class="checkTamUng" type="checkbox" id="checkTamUng"/>
+				<label for="checkTamUng">Tạm ứng</label>
+
+				<input  class="checkCongTyCon" type="checkbox" id="checkCongTyCon"/>
+				<label for="checkCongTyCon">Công ty còn</label>
+			</td>
+		</tr>
+	</tfoot>
+
+</table>
+<small class="right" style="padding-top: 10px;">( * <i>Đơn vị tính: VNĐ</i> )</small>
+<div style="clear:right"></div>
+<div style="width: 300px; float: right; margin-top: 30px;  text-align: center">
+	<strong>Ký tên</strong> <br><br><br><br><br>
+	<i>Nguyễn Xuân Hòa</i>
+</div>

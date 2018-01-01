@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Site</title>
+    
+    <!-- Compiled and minified CSS -->
+    <link href="assets/css/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css"/>
+  
+  </head>
+  <body>
+
+      <page size="A4">
+		    <div class="nav no-print">
+            <div class="row">
+                <div class="col s4">
+                  <a href="#" style="width: 100%" title="#" data-nav="taoBang" class="navItem wares-light red btn btn-large"><i class="material-icons left">add</i> Tạo bảng</a>
+                </div>
+
+                <div class="col s4">
+                  <a href="#" style="width: 100%" onclick="window.print()" title="#"  class="wares-light green btn btn-large"><i class="material-icons left">print</i> In bảng</a>
+                </div>
+
+                <div class="col s4">
+                  <a href="#" id="pdf" style="width: 100%" title="#" class="wares-light blue btn btn-large"><i class="material-icons left">add</i> Dropbox</a>
+                </div>
+            <!--     <div class="col s6">
+                  <a href="#" title="#" data-nav="danhSachBang" class="navItem wares-light btn btn-large"><i class="material-icons left">list</i> Danh sách bảng</a>
+                </div>   -->
+            </div>  
+
+        </div>
+        
+          <div class="content">
+            <div id="loadPage"></div>
+            <div id="loadModule"></div>
+          </div>
+          
+        <div id="content"></div>
+
+      </page>
+
+   <!--    <div class="fixed-action-btn no-print">
+          <a class="btn-floating btn-large blue">
+            <i class="large material-icons">mode_edit</i>
+          </a>
+          <ul>
+            <li>
+              <a class="btn-floating green navItem" data-nav="taoBang"><i class="material-icons">add</i></a>
+            </li>
+
+            
+
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+          </ul>
+        </div>
+
+
+ -->
+
+      <!-- Modal Structure -->
+      <div id="export" class="modal">
+        <div class="modal-content">
+          <h4>Xuất File</h4>
+          <hr>
+          <div class="row">
+            <div class="col s6">
+              <div class="card-panel" style="padding: 0">
+                <img src="" id="export_img" alt="#" title="#" class="responsive-img">
+              </div>
+            </div>
+
+            <div class="col s6">
+                <input type="text" id="export_name" placeholder="Nhập tên file" name="">
+                
+                <a href="#" id="export_download" download="file.png"  style="width: 100%; margin-bottom: 40px;" title="#" class="wares-light green btn btn-large"><i class="material-icons left">image</i> Lưu thành File ảnh</a>
+
+                <a href="#" id="export_close" class="btn wares-light red" title="#"><i class="material-icons left">close</i> Đóng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Compiled and minified JavaScript -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/materialize.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+      <script src="script.js"></script>
+      
+
+      
+  </body>
+</html>
