@@ -8,8 +8,6 @@ $(document).ready(function() {
      
     var navItem, $this, template;
 
-
-
     $(document).on('click', '.navItem', function(e){
     	e.preventDefault();
     	$this = $(this);
@@ -71,7 +69,7 @@ $(document).ready(function() {
         e.preventDefault();
         
         template = '<tr>'+
-            '<td><input type="" class="c-input"></td></td>'+
+            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="c-input dvt"></td>'+
             '<td><input type="" class="c-input kl" placeholder="0"></td>'+
@@ -85,7 +83,7 @@ $(document).ready(function() {
     $(document).on('click', "#addRowTongHop", function(e){
         e.preventDefault();
         template = '<tr>'+
-            '<td><input type="" class="c-input"></td></td>'+
+            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="thanhTien c-input text-right" value="0"></td>'+
             '<td><textarea></textarea>'+
@@ -98,7 +96,7 @@ $(document).ready(function() {
         e.preventDefault();
         
         template = '<tr>'+
-            '<td><input type="" class="c-input"></td></td>'+
+            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="dvt c-input"></td>'+
             '<td><input type="" class="kl c-input" ></td>'+
@@ -132,14 +130,9 @@ $(document).ready(function() {
         $(this).val(str.replace(/\d(?=(?:\d{3})+(?!\d))/g, '$&,'));
     });
 
-
-
-    // Sum các row
-    $(document).on('input','.donGia, .kl', function(){
-        
+    $.sumQuyetToan = function() {
         var sum = 0;
         $('tr').each(function () {
-             
              var kl = $(this).find('.kl').val();
              var donGia = $(this).find('.donGia').val();
              if ( !isNaN(kl) && kl.length !== 0 && donGia.length !== 0  ) {
@@ -150,18 +143,18 @@ $(document).ready(function() {
                 $(this).find('.thanhTien').html('');
              }
          });
-
         $("#total").html(addCommas(sum));
-
         $("#docChuSo").html('<i>'+capitalize(DOCSO.doc(sum))+' đồng</i>');
+    }
 
+    // Sum các row
+    $(document).on('input','.donGia, .kl', function(){
+        $.sumQuyetToan();
     });
 
-    // Sum các row thành tiền
-    $(document).on('input','.thanhTien', function(){
-        
-        var sum = 0;
 
+    $.sumTongHop = function(){
+        var sum = 0;
         $('tr').each(function () {
              var thanhTien = $(this).find('.thanhTien').val();
              
@@ -172,6 +165,21 @@ $(document).ready(function() {
          });
         $("#total").html(addCommas(sum));
         $("#docChuSo").html('<i>'+capitalize(DOCSO.doc(sum))+' đồng</i>');
+    }
+
+    // Sum các row thành tiền
+    $(document).on('input','.thanhTien', function(){
+        $.sumTongHop();
+
+        if($("#tamUng").is(":visible")){
+            $.tinhTamUng();
+            $("congTyCon").val(0);
+        }else if($("#congTyCon").is(":visible")){
+            $.tinhCongTyCon();
+            $("tamUng").val(0);
+        }else{
+            $.sumTongHop();
+        }
 
     });
 
@@ -186,22 +194,26 @@ $(document).ready(function() {
         }else{
             $("#showTamUng").hide();
             $("#showConLai").hide();
+            $.sumTongHop();
+            $("#tamUng").val(0);
+            $(".conLai").html($("#total").text());
         }
 
     });
 
-    $(document).on('input','#tamUng', function(e){
-        e.preventDefault();
 
+    $.tinhTamUng = function(){
         // Tính số tiền còn lại
         var total = $("#total").text();
         var tamUng = $("#tamUng").val();
-
         var conLai = parseInt(total.replace(/[^0-9\.]/g,'')) - parseInt(tamUng.replace(/[^0-9\.]/g,''));
-
         $(".conLai").html(addCommas(conLai)); 
         $("#docChuSo").html('<i>'+capitalize(DOCSO.doc(conLai))+' đồng</i>');
+    }
 
+    $(document).on('input','#tamUng', function(e){
+        e.preventDefault();
+        $.tinhTamUng();
     });
 
 
@@ -215,14 +227,13 @@ $(document).ready(function() {
         }else{
             $("#showCongTyCon").hide();
             $("#showTongCong").hide();
+            $.sumTongHop();
+            $("#congTyCon").val(0);
+            $(".tongCong").html($("#total").text());
         }
     });
 
-
-
-    $(document).on('input','#congTyCon', function(e){
-        e.preventDefault();
-
+    $.tinhCongTyCon = function(){
         // Tính số tiền còn lại
         var total = $("#total").text();
         var congTyCon = $("#congTyCon").val();
@@ -231,7 +242,49 @@ $(document).ready(function() {
 
         $(".tongCong").html(addCommas(tongCong)); 
         $("#docChuSo").html('<i>'+capitalize(DOCSO.doc(tongCong))+' đồng</i>');
+    }
 
+    $(document).on('input','#congTyCon', function(e){
+        e.preventDefault();
+        $.tinhCongTyCon();
+    });
+
+    // xóa hàng
+    // 
+    $(document).on('click',"#showRemove", function(e){
+        e.preventDefault();
+
+        if($(".remove").is(":visible")){
+            $(".remove").hide();
+        }else{
+            $(".remove").show();
+        }
+        
+    });
+
+    $(document).on('click','.remove', function(e){
+        e.preventDefault();
+        if (!confirm('Ba đang muốn xóa hàng ?')) {
+            return false;
+        }
+        $(this).parent('td').parent('tr').remove();
+
+        var type = $("#type").val();
+
+        if (type == 1) {
+            $.sumQuyetToan();
+        }else if( type == 2){
+            $.sumTongHop();
+
+            if($("#tamUng").is(":visible")){
+                $.tinhTamUng();
+            }else if($("#congTyCon").is(":visible")){
+                $.tinhCongTyCon();
+            }
+        }else{
+
+        }
+        
     });
 
    
