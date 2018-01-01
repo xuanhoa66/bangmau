@@ -3,7 +3,10 @@ body {
   font-size: 1em;
 }
 page[size="A4"] {
-  background: white;
+  background: white url('images/bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80%;
   width: 21cm;
   height: 28.7cm;
   display: block;
@@ -86,6 +89,7 @@ h1.no-margin{
   width: 100%;
   line-height: 30px;
   border: 0;
+  background: transparent;
 }
 
 textarea{
@@ -103,9 +107,14 @@ textarea{
   font-size: 13px;
   display: none;
 }
+
+table.striped>tbody>tr:nth-child(odd) {
+    background-color: rgba(000,000,000, 0.1);
+}
+
 table{
   th{
-    background: #bdbdbd;
+    background-color: rgba(000,000,000, 0.3);
     color: #333;
   }
   td,th{
