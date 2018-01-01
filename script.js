@@ -37,7 +37,7 @@ $(document).ready(function() {
     function createPDF() {  
         
         $('.no-print').css('display','none');
-        $('h1').css('margin-top','50px');
+        $('h1').css('margin-top','20px');
 
         var form = $('page').get(0);
 
