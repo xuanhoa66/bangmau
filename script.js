@@ -46,7 +46,7 @@ $(document).ready(function() {
             a.download = 'somefilename.jpg';
 
             $('.no-print').css('display','block');
-            
+
             a.click();
 
 
@@ -146,8 +146,8 @@ $(document).ready(function() {
         $('tr').each(function () {
              var kl = $(this).find('.kl').val();
              var donGia = $(this).find('.donGia').val();
-             if ( !isNaN(kl) && kl.length !== 0 && donGia.length !== 0  ) {
-                var thanhTien = parseInt(kl) * parseInt(donGia.replace(/[^0-9\.]/g,''));
+             if ( kl && kl.length !== 0 && donGia.length !== 0  ) {
+                var thanhTien = parseFloat(kl) * parseInt(donGia.replace(/[^0-9\.]/g,''));
                 $(this).find('.thanhTien').html(addCommas(thanhTien));
                 sum += parseInt(thanhTien);
              }else{
