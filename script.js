@@ -42,11 +42,11 @@ $(document).ready(function() {
         html2canvas(form).then( function(canvas){
              var a = document.createElement('a');
         // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
-        a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-        a.download = 'somefilename.jpg';
-        a.click();
+            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            a.download = 'somefilename.jpg';
+            a.click();
 
-        
+
             // var img = canvas.toDataURL().replace("image/jpeg", "image/octet-stream");;
             // var win = window.open(img);
             // $("#export_img").attr('src',img);
@@ -54,6 +54,8 @@ $(document).ready(function() {
             // $("#export_dropbox").attr('href','/index.html');
         }); 
         // $("#export").modal('open');
+
+        // $('.no-print').css('display','block');
     } 
 
     // đổi tên file
