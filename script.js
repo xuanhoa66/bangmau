@@ -307,6 +307,19 @@ $(document).ready(function() {
         
     });
 
+
+    $(document).on('change','#anNen', function(e){
+        e.preventDefault();
+        if ( this.checked ) {
+            $("page[size=A4]").addClass('bg-none');
+        }else{
+            $("page[size=A4]").removeClass('bg-none');
+        }
+        
+    });
+
+
+
    
 
 
