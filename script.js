@@ -323,6 +323,55 @@ $(document).ready(function() {
     });
 
 
+    $(document).on('change','#soHang', function(e){
+        e.preventDefault();
+
+        var soHang = $(this).val();
+
+        if (soHang != '' || soHang != 0) {
+            if (!confirm('Thêm '+soHang+' hàng ?')) {
+                $(this).val('');
+                return false;
+            }
+        }
+
+        var type = $("#type").val();
+        if (type == 1) {
+            for (var i = 1; i <= soHang; i++) {
+                template = '<tr>'+
+                    '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
+                    '<td><textarea class="hangMuc"></textarea></td>'+
+                    '<td><input type="" class="c-input dvt text-center"></td>'+
+                    '<td><input type="" class="c-input kl text-right"></td>'+
+                    '<td><input type="" class="c-input text-right donGia"></td>'+
+                    '<td class="text-right"><span class="thanhTien"></span></td>'+
+                    '</tr>';
+                $("#appendRow").append(template);
+            }
+        }else if( type == 2 ){
+            for (var i = 1; i <= soHang; i++) {
+                template = '<tr>'+
+                '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td>'+
+                    '<td><textarea class="hangMuc"></textarea></td>'+
+                    '<td><input type="" class="thanhTien c-input text-right"></td>'+
+                    '<td><textarea></textarea>'+
+                    '</tr>';
+                $("#appendRow").append(template);
+            }
+        }else if( type == 3){
+            for (var i = 1; i <= soHang; i++) {
+                template = '<tr>'+
+                    '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td>'+
+                    '<td><textarea class="hangMuc"></textarea></td>'+
+                    '<td><input type="" class="text-center dvt c-input"></td>'+
+                    '<td><input type="" class="text-right kl c-input" ></td>'+
+                    '</tr>';
+                $("#appendRow").append(template);
+            }
+        }
+        $(this).val('');
+    });
+
 
    
 
