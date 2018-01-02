@@ -182,7 +182,10 @@ $(document).ready(function() {
         var sum = 0;
         $('tr').each(function () {
              var thanhTien = $(this).find('.thanhTien').val();
-             
+
+             if (thanhTien == '') {
+                thanhTien = 0;
+             }
              if ( typeof thanhTien !== 'undefined') {
                 sum += parseInt(thanhTien.replace(/[^0-9\.]/g,''));
              }
