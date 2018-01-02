@@ -90,7 +90,7 @@ $(document).ready(function() {
         e.preventDefault();
         
         template = '<tr>'+
-            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
+            '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="c-input dvt"></td>'+
             '<td><input type="" class="c-input kl"></td>'+
@@ -104,7 +104,7 @@ $(document).ready(function() {
     $(document).on('click', "#addRowTongHop", function(e){
         e.preventDefault();
         template = '<tr>'+
-            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td>'+
+            '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="thanhTien c-input text-right"></td>'+
             '<td><textarea></textarea>'+
@@ -117,9 +117,9 @@ $(document).ready(function() {
         e.preventDefault();
         
         template = '<tr>'+
-            '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td>'+
+            '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
-            '<td><input type="" class="dvt c-input"></td>'+
+            '<td><input type="" class="text-center dvt c-input"></td>'+
             '<td><input type="" class="kl c-input" ></td>'+
             '</tr>';
         $("#appendRow").append(template);
