@@ -30,7 +30,6 @@ $(document).ready(function() {
     	$("#loadModule").load('pages/modules/'+itemNav+'.html');
     });
 
-
     //create pdf  
     function createPDF() {  
         
@@ -38,12 +37,23 @@ $(document).ready(function() {
         $('h1').css('margin-top','20px');
 
         var form = $('page').get(0);
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        var hou = today.getHours();
+        var minu = today.getMinutes();
+        var sec = today.getSeconds();
+
+        var type = $("#type").val();
+        var name = 'bang_mau_'+dd+'/'+mm+'/'+yyyy+'/'+hou+'/'+minu+'/'+sec+'.png';
 
         html2canvas(form).then( function(canvas){
              var a = document.createElement('a');
         // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
             a.href = canvas.toDataURL("image/jpeg");
-            a.download = 'somefilename.jpg';
+
+            a.download = name;
 
             $('.no-print').css('display','block');
 
