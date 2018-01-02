@@ -93,8 +93,8 @@ $(document).ready(function() {
             '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="c-input dvt"></td>'+
-            '<td><input type="" class="c-input kl" placeholder="0"></td>'+
-            '<td><input type="" class="c-input text-right donGia" placeholder="0"></td>'+
+            '<td><input type="" class="c-input kl"></td>'+
+            '<td><input type="" class="c-input text-right donGia"></td>'+
             '<td class="text-right"><span class="thanhTien"></span></td>'+
             '</tr>';
         $("#appendRow").append(template);
@@ -106,7 +106,7 @@ $(document).ready(function() {
         template = '<tr>'+
             '<td><input type="" class="c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
-            '<td><input type="" class="thanhTien c-input text-right" value="0"></td>'+
+            '<td><input type="" class="thanhTien c-input text-right"></td>'+
             '<td><textarea></textarea>'+
             '</tr>';
         $("#appendRow").append(template);
