@@ -119,6 +119,7 @@ table.striped>tbody>tr:nth-child(odd) {
     background-color: rgba(000,000,000, 0.1);
 }
 
+
 table{
   th{
     background-color: rgba(000,000,000, 0.3);
@@ -132,6 +133,15 @@ table{
       font-size: 0.9em;
     }
   }
+  
+  thead
+          {
+              display: table-header-group;
+          }
+          tfoot
+          {
+              display: table-footer-group;
+          }
 
 
   td, .thongTin{
@@ -171,7 +181,7 @@ input[disabled]{
 @media print {
   @page    {
     size: auto;  
-    margin: 0;  
+    margin: 0.5cm;  
    }
 
   body, page[size="A4"] {
