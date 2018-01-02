@@ -8,6 +8,10 @@ $(document).ready(function() {
      
     var navItem, $this, template;
 
+    $("#loadPage").load('pages/taoBang.html');
+    $("#loadModule").load('pages/modules/quyetToanBaoGia.html');  
+    
+
     $(document).on('click', '.navItem', function(e){
     	e.preventDefault();
     	$this = $(this);
