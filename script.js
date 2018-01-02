@@ -34,7 +34,7 @@ $(document).ready(function() {
     function createPDF() {  
         
         $('.no-print').css('display','none');
-        $('h1').css('margin-top','20px');
+        $('h1').css('margin-top','35px');
 
         var form = $('page').get(0);
         var today = new Date();

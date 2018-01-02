@@ -169,13 +169,21 @@ input[disabled]{
 }
 
 @media print {
+  @page    {
+    size: auto;  
+    margin: 0;  
+   }
+
   body, page[size="A4"] {
-    margin: 0;
+    margin: 0mm;
     box-shadow: 0;
     -webkit-print-color-adjust: exact;
     padding-top: 35px;
-
   }
+
+  header,footer { 
+      display: none; 
+    }
 
   input, textarea{
     border: none;
