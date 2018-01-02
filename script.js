@@ -92,8 +92,8 @@ $(document).ready(function() {
         template = '<tr>'+
             '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
-            '<td><input type="" class="c-input dvt"></td>'+
-            '<td><input type="" class="c-input kl"></td>'+
+            '<td><input type="" class="c-input dvt text-center"></td>'+
+            '<td><input type="" class="c-input kl text-center"></td>'+
             '<td><input type="" class="c-input text-right donGia"></td>'+
             '<td class="text-right"><span class="thanhTien"></span></td>'+
             '</tr>';
@@ -120,7 +120,7 @@ $(document).ready(function() {
             '<td><input type="" class="text-center c-input"><a class="btn red remove" style="display: none">x</a></td>'+
             '<td><textarea class="hangMuc"></textarea></td>'+
             '<td><input type="" class="text-center dvt c-input"></td>'+
-            '<td><input type="" class="kl c-input" ></td>'+
+            '<td><input type="" class="text-center kl c-input" ></td>'+
             '</tr>';
         $("#appendRow").append(template);
     });
